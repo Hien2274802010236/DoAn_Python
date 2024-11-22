@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý Sinh viên</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Danh sách Sinh viên</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="search-filter-container">
+            <form method="GET" action="{{ url_for('index') }}" class="search-form">
+                <div class="search-box">
+                    <input type="text" name="search" value="{{ search }}" placeholder="Tìm kiếm theo tên hoặc ngành...">
+                    <button type="submit">Tìm kiếm</button>
+                </div>
+                
+                <div class="filter-box">
+                    <select name="gender">
+                        <option value="">Tất cả giới tính</option>
+                        {% for gender in genders %}
+                        <option value="{{ gender }}" {% if filter_gender == gender %}selected{% endif %}>
+                            {{ gender }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select name="major">
+                        <option value="">Tất cả ngành</option>
+                        {% for major in majors %}
+                        <option value="{{ major }}" {% if filter_major == major %}selected{% endif %}>
+                            {{ major }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    
+                    <button type="submit">Lọc</button>
+                    <a href="{{ url_for('index') }}" class="reset-button">Đặt lại</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="{{ url_for('add_student') }}" class="button">Thêm Sinh viên</a>
+            <a href="{{ url_for('statistics') }}" class="button">Thống kê</a>
+        </div>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Tuổi</th>
+                <th>Giới tính</th>
+                <th>Ngành</th>
+                <th>Thao tác</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+                <td class="action-buttons">
+                    <a href="{{ url_for('edit_student', id=student[0]) }}" class="button">Sửa</a>
+                    <a href="{{ url_for('delete_student', id=student[0]) }}" 
+                       onclick="return confirm('Bạn có chắc muốn xóa?')" class="button delete">Xóa</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="pagination">
+            <a href="{{ url_for('index', page=1, search=search, gender=filter_gender, major=filter_major) }}">&laquo;</a>
+            {% for p in range(1, total_pages + 1) %}
+                <a href="{{ url_for('index', page=p, search=search, gender=filter_gender, major=filter_major) }}" class="{% if p == page %}active{% endif %}">{{ p }}</a>
+            {% endfor %}
+            <a href="{{ url_for('index', page=total_pages, search=search, gender=filter_gender, major=filter_major) }}">&raquo;</a>
+        </div>
+    </div>
+</body>
+</html>

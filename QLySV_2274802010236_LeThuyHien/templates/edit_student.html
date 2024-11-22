@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sửa Sinh viên</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Sửa Sinh viên</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="student-form">
+            <div>
+                <label for="name">Tên sinh viên:</label>
+                <input type="text" id="name" name="name" value="{{ student[1] }}" required>
+                <span class="error-message">Vui lòng nhập tên sinh viên</span>
+            </div>
+
+            <div>
+                <label for="age">Tuổi:</label>
+                <input type="number" id="age" name="age" value="{{ student[2] }}" min="16" max="100" required>
+                <span class="error-message">Tuổi phải từ 16 đến 100</span>
+            </div>
+
+            <div>
+                <label for="gender">Giới tính:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Chọn giới tính</option>
+                    <option value="Nam" {% if student[3] == 'Nam' %}selected{% endif %}>Nam</option>
+                    <option value="Nữ" {% if student[3] == 'Nữ' %}selected{% endif %}>Nữ</option>
+                    <option value="Khác" {% if student[3] == 'Khác' %}selected{% endif %}>Khác</option>
+                </select>
+                <span class="error-message">Vui lòng chọn giới tính</span>
+            </div>
+
+            <div>
+                <label for="major">Ngành học:</label>
+                <input type="text" id="major" name="major" value="{{ student[4] }}" required>
+                <span class="error-message">Vui lòng nhập ngành học</span>
+            </div>
+
+            <button type="submit">Cập nhật</button>
+        </form>
+
+        <a href="{{ url_for('index') }}" class="back-button">Quay lại</a>
+    </div>
+</body>
+</html>

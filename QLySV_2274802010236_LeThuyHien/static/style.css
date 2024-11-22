@@ -1,0 +1,586 @@
+/* Reset và styles chung */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Flash messages */
+.flash-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    color: #155724;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Form tìm kiếm và lọc */
+.search-filter-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    border: 1px solid #eaeaea;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Search box styling */
+.search-box {
+    flex: 1;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.search-box input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    padding-right: 40px; /* Space for search icon */
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.search-box input[type="text"]:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.search-box button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+    color: #3498db;
+}
+
+/* Filter box styling */
+.filter-box {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-box select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.filter-box select:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Button styling */
+.filter-box button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.filter-box button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-box button:active {
+    transform: translateY(0);
+}
+
+/* Reset button styling */
+.filter-box .reset-button {
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 100px;
+}
+
+.filter-box .reset-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons .button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons .button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e8f4f8;
+}
+
+/* Action buttons in table */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+
+}
+
+.action-buttons .button {
+    padding: 6px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: #2ecc71;
+}
+
+.action-buttons .edit {
+    background-color: #f39c12;
+}
+
+.action-buttons .edit-age {
+    background-color: #3498db;
+}
+
+.action-buttons .delete {
+    background-color: #e74c3c;
+}
+
+.action-buttons .edit:hover {
+    background-color: #e67e22;
+}
+
+.action-buttons .edit-age:hover {
+    background-color: #2980b9;
+}
+
+.action-buttons .delete:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .search-filter-container {
+        padding: 15px;
+    }
+
+    .search-form {
+        gap: 10px;
+    }
+
+    .filter-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-box select,
+    .filter-box button,
+    .filter-box .reset-button {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .search-box input[type="text"] {
+        padding: 10px 35px 10px 12px;
+        font-size: 14px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+    }
+
+    .nav-buttons .button {
+        width: 100%;
+    }
+}
+
+/* Optional: Animation for focus states */
+@keyframes focusAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.search-box input[type="text"]:focus,
+.filter-box select:focus {
+    animation: focusAnimation 0.3s ease;
+}
+/* Styles cho form thêm và sửa sinh viên */
+.student-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.student-form div {
+    margin-bottom: 20px;
+}
+
+.student-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.student-form input[type="text"],
+.student-form input[type="number"],
+.student-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.student-form input[type="text"]:focus,
+.student-form input[type="number"]:focus,
+.student-form select:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.student-form button[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.student-form button[type="submit"]:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #95a5a6;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles cho trang thống kê */
+.statistics-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.stats-section {
+    margin-bottom: 30px;
+}
+
+.stats-section h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.stats-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stats-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stats-item:hover {
+    background-color: #e8f4f8;
+    transform: translateX(5px);
+}
+
+.stats-label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.stats-value {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.stats-chart {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Responsive design cho form và thống kê */
+@media (max-width: 768px) {
+    .student-form,
+    .statistics-container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .stats-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .stats-value {
+        width: 100%;
+    }
+}
+
+/* Animation cho các thành phần thống kê */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stats-section {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Hiệu ứng loading cho biểu đồ */
+.stats-chart {
+    position: relative;
+    min-height: 200px;
+}
+
+.stats-chart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Styles cho thông báo lỗi form */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.student-form input:invalid + .error-message {
+    display: block;
+}
+
+/* Hiệu ứng hover cho các nút */
+.student-form button[type="submit"],
+.back-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.student-form button[type="submit"]::after,
+.back-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.student-form button[type="submit"]:hover::after,
+.back-button:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px  0;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background: #35424a;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.pagination a:hover {
+    background: #45a049;
+}
+
+.pagination .active {
+    background: #45a049;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.pagination .disabled {
+    background: #cccccc;
+    color: #666666;
+    pointer-events: none;
+}
